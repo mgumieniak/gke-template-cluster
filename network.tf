@@ -1,3 +1,6 @@
+# VPC-native clusters
+# https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips
+
 resource "google_compute_network" "k8s_vpc" {
   name = "${var.gke_cluster_name}-k8s-vpc"
   auto_create_subnetworks = "false"

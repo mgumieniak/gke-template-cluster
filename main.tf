@@ -100,14 +100,5 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
     ]
-
-    dynamic "taint" {
-      for_each = var.taint
-      content {
-        key    = taint.value["key"]
-        value  = taint.value["value"]
-        effect = taint.value["effect"]
-      }
-    }
   }
 }

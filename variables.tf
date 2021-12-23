@@ -82,7 +82,7 @@ variable "enable_private_nodes" {
 
 variable "master_authorized_network_cidr" {
   description = "External networks that can access the Kubernetes cluster master through HTTPS.  The default is to allow all (not recommended for production)."
-  default     = "89.64.52.0/24"
+  default     = "0.0.0.0/0"
 }
 
 variable "master_ipv4_cidr_block" {
@@ -122,7 +122,7 @@ variable "initial_node_count" {
 }
 
 variable "min_nodes" {
-  default = "1"
+  default = "2"
 }
 
 variable "max_nodes" {
@@ -132,16 +132,4 @@ variable "max_nodes" {
 variable "auto_upgrade" {
   description = "Enables auto-upgrade of cluster.  Needs to be 'true' unless 'channel' is UNSPECIFIED"
   default     = "false"
-}
-
-variable "taint" {
-  description = "Used to specify node taints (if any). List of maps whose values are strings."
-  type        = list(map(string))
-  default = [
-    #    {
-    #      key    = "node.cilium.io/agent-not-ready"
-    #      value  = "true"
-    #      effect = "NO_SCHEDULE"
-    #    }
-  ]
 }

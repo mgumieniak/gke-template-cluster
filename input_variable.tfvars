@@ -1,4 +1,4 @@
-project_id            = "oval-replica-321220"
+project_id            = "gcp-workspace-336017"
 credentials_file_path = "~/keys/terraform-ca.json"
 
 channel      = "REGULAR"
