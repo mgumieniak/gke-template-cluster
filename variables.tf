@@ -19,23 +19,23 @@ variable "zone" {
 #------------------------------------------------
 
 variable "primary_ip_cidr" {
-  description = "Primary CIDR for nodes.  /24 will provide 256 node addresses."
+  description = "Primary CIDR for nodes."
   default     = "10.128.0.0/20"
 }
 
 variable "max_pods_per_node" {
-  description = "Max pods per node should be half of the number of node IP addresses, up to a max of 110"
+  description = "Max pods per node. By default, GKE allows up to 110 Pods per node on Standard clusters. Autopilot clusters have a maximum of 32 Pods per node."
   default     = "110"
 }
 
 variable "cluster_ipv4_cidr_block" {
   description = "Secondary CIDR for pods."
-  default     = "10.0.0.0/14"
+  default     = "10.112.0.0/14"
 }
 
 variable "services_ipv4_cidr_block" {
   description = "Secondary CIDR for services."
-  default     = "10.4.0.0/20"
+  default     = "10.116.0.0/20"
 }
 
 #-----------------------------
@@ -64,6 +64,7 @@ variable "enable_tpu" {
   default     = "false"
 }
 
+# VPC_NATIVE is recommended
 variable "networking_mode" {
   description = "Determines whether alias IPs or routes are used for pod IPs in the cluster.  ip_allocation_policy block needs to be defined if using VPC_NATIVE.  Accepted values are VPC_NATIVE or ROUTES."
   default     = "VPC_NATIVE"
